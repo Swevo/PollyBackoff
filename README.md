@@ -1,0 +1,110 @@
+# PollyBackoff
+
+[![NuGet](https://img.shields.io/nuget/v/PollyBackoff.svg)](https://www.nuget.org/packages/PollyBackoff)
+[![CI](https://github.com/Swevo/PollyBackoff/actions/workflows/build.yml/badge.svg)](https://github.com/Swevo/PollyBackoff/actions/workflows/build.yml)
+
+Backoff delay strategies for **Polly v8** resilience pipelines.
+
+`Polly.Contrib.WaitAndRetry` was built for Polly v7's `WaitAndRetry()` API. Polly v8 uses a `DelayGenerator` delegate — this package provides the same beloved strategies in the new API.
+
+## Install
+
+```
+dotnet add package PollyBackoff
+```
+
+## Usage
+
+### Fluent extension on `RetryStrategyOptions`
+
+```csharp
+using PollyBackoff;
+
+var pipeline = new ResiliencePipelineBuilder<HttpResponseMessage>()
+    .AddRetry(new RetryStrategyOptions<HttpResponseMessage>
+    {
+        MaxRetryAttempts = 5,
+        ShouldHandle = new PredicateBuilder<HttpResponseMessage>()
+            .Handle<HttpRequestException>()
+            .HandleResult(r => !r.IsSuccessStatusCode)
+    }
+    .UseDecorrelatedJitter(baseDelay: TimeSpan.FromMilliseconds(100)))
+    .Build();
+```
+
+### Direct `Backoff` factory
+
+```csharp
+var backoff = Backoff.DecorrelatedJitter(baseDelay: TimeSpan.FromMilliseconds(100));
+
+var pipeline = new ResiliencePipelineBuilder()
+    .AddRetry(new RetryStrategyOptions
+    {
+        MaxRetryAttempts = 5,
+        DelayGenerator = args => new ValueTask<TimeSpan?>(backoff(args.AttemptNumber))
+    })
+    .Build();
+```
+
+## Strategies
+
+### Decorrelated Jitter (recommended)
+
+Based on the algorithm from [Marc Brooker's blog](https://brooker.co.za/blog/2015/03/21/backoff.html) and AWS guidance. Each delay is randomly chosen from `[baseDelay, previous × factor]`, capped at `maxDelay`. Avoids retry storms by spreading attempts across time.
+
+```csharp
+options.UseDecorrelatedJitter(
+    baseDelay: TimeSpan.FromMilliseconds(100),
+    factor: 3.0,              // default
+    maxDelay: TimeSpan.FromSeconds(30));  // default
+```
+
+### Exponential Backoff
+
+`delay = min(maxDelay, baseDelay × factor^attempt)`, with optional full jitter.
+
+```csharp
+options.UseExponentialBackoff(
+    baseDelay: TimeSpan.FromMilliseconds(100),
+    factor: 2.0,              // default
+    maxDelay: TimeSpan.FromSeconds(30),
+    addJitter: true);
+```
+
+### Linear Backoff
+
+`delay = baseDelay + increment × attempt`, capped at `maxDelay`.
+
+```csharp
+options.UseLinearBackoff(
+    baseDelay: TimeSpan.FromMilliseconds(100),
+    increment: TimeSpan.FromMilliseconds(100),  // defaults to baseDelay
+    maxDelay: TimeSpan.FromSeconds(10),
+    addJitter: false);
+```
+
+### Constant Backoff
+
+Fixed delay every attempt, with optional ±jitter.
+
+```csharp
+options.UseConstantBackoff(
+    delay: TimeSpan.FromSeconds(1),
+    addJitter: true,
+    jitterFactor: 0.1);  // ±10%
+```
+
+## Composing with existing `DelayGenerator`
+
+Each strategy also exposes a `Func<int, TimeSpan>` you can use directly:
+
+```csharp
+var backoff = Backoff.ExponentialBackoff(TimeSpan.FromMilliseconds(100), addJitter: true);
+
+// attempt 0 → ~100ms, attempt 1 → ~200ms, attempt 2 → ~400ms (with jitter)
+TimeSpan delay = backoff(attemptNumber);
+```
+
+## License
+
+MIT

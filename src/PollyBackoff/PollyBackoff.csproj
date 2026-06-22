@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFrameworks>net6.0;net8.0;net9.0</TargetFrameworks>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <LangVersion>latest</LangVersion>
@@ -11,7 +11,10 @@
     <Version>1.0.0</Version>
     <Authors>Justin Bannister</Authors>
     <Description>Backoff delay strategies for Polly v8 resilience pipelines. Provides decorrelated jitter, exponential, linear, and constant backoff as DelayGenerator delegates for RetryStrategyOptions.</Description>
-    <PackageTags>polly;retry;backoff;jitter;resilience;exponential;linear;delay</PackageTags>
+    <PackageTags>polly;retry;backoff;jitter;resilience;exponential;linear;delay;wait-and-retry;dotnet;fault-tolerance;transient-fault</PackageTags>
+    <Title>PollyBackoff — Backoff strategies for Polly v8 (jitter, exponential, linear, constant)</Title>
+    <PackageSummary>Drop-in replacement for Polly.Contrib.WaitAndRetry in Polly v8. Provides decorrelated jitter, exponential, linear, and constant backoff as DelayGenerator delegates for RetryStrategyOptions.</PackageSummary>
+    <PackageReleaseNotes>1.0.2: Added net6.0 and net9.0 targets; improved discoverability tags.</PackageReleaseNotes>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/Swevo/PollyBackoff</RepositoryUrl>

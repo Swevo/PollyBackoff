@@ -1,5 +1,7 @@
 # PollyBackoff
 
+<img src="icon.png" width="100" align="right" />
+
 [![NuGet](https://img.shields.io/nuget/v/PollyBackoff.svg)](https://www.nuget.org/packages/PollyBackoff)
 [![CI](https://github.com/Swevo/PollyBackoff/actions/workflows/build.yml/badge.svg)](https://github.com/Swevo/PollyBackoff/actions/workflows/build.yml)
 

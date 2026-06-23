@@ -9,7 +9,7 @@ env:
 
 jobs:
   publish:
-    name: Publish Polly.Contrib.Caching and Polly.Contrib.Bulkhead
+    name: Publish PollyCaching and PollyBulkhead
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -32,7 +32,7 @@ jobs:
         with:
           dotnet-version: '8.0.x'
 
-      - name: Build and Pack Polly.Contrib.Caching
+      - name: Build and Pack PollyCaching
         working-directory: Polly.Contrib.Caching
         run: |
           dotnet restore
@@ -43,7 +43,7 @@ jobs:
             --output nupkgs \
             /p:Version=1.0.0
 
-      - name: Build and Pack Polly.Contrib.Bulkhead
+      - name: Build and Pack PollyBulkhead
         working-directory: Polly.Contrib.Bulkhead
         run: |
           dotnet restore
@@ -66,3 +66,4 @@ jobs:
             --api-key "$NUGET_API_KEY" \
             --source https://api.nuget.org/v3/index.json \
             --skip-duplicate
+

@@ -3,6 +3,7 @@
 <img src="icon.png" width="100" align="right" />
 
 [![NuGet](https://img.shields.io/nuget/v/PollyBackoff.svg)](https://www.nuget.org/packages/PollyBackoff)
+[![NuGet Downloads](https://img.shields.io/nuget/dt/PollyBackoff.svg)](https://www.nuget.org/packages/PollyBackoff)
 [![CI](https://github.com/Swevo/PollyBackoff/actions/workflows/build.yml/badge.svg)](https://github.com/Swevo/PollyBackoff/actions/workflows/build.yml)
 
 Backoff delay strategies for **Polly v8** resilience pipelines.
@@ -114,6 +115,17 @@ If PollyBackoff saves you time — especially if you're migrating from Polly.Con
 [![Sponsor](https://img.shields.io/badge/Sponsor-%E2%9D%A4-pink?logo=github)](https://github.com/sponsors/Swevo)
 
 > 💼 **Need .NET resilience help?** Visit [solidqualitysolutions.com](https://solidqualitysolutions.com/) for consulting and architecture services.
+
+## Related packages
+
+| Package | Description |
+|---|---|
+| [PollyChaos](https://www.nuget.org/packages/PollyChaos) | Chaos engineering — inject faults & latency (Simmy for v8) |
+| [PollyHealthChecks](https://www.nuget.org/packages/PollyHealthChecks) | ASP.NET Core health check integration |
+| [PollyCaching](https://www.nuget.org/packages/PollyCaching) | Caching resilience strategy |
+| [PollyBulkhead](https://www.nuget.org/packages/PollyBulkhead) | Bulkhead isolation |
+| [PollyRateLimiter](https://www.nuget.org/packages/PollyRateLimiter) | Rate limiting strategies |
+| [PollyOpenTelemetry](https://www.nuget.org/packages/PollyOpenTelemetry) | OpenTelemetry metrics & tracing |
 
 ## License
 

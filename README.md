@@ -146,6 +146,8 @@ If PollyBackoff saves you time — especially if you're migrating from Polly.Con
 
 | [PollyMassTransit](https://github.com/Swevo/PollyMassTransit) | Polly v8 for MassTransit |
 
+| [PollyAzureTableStorage](https://github.com/Swevo/PollyAzureTableStorage) | Polly v8 for Azure Table Storage |
+
 ## License
 
 MIT

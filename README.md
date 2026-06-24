@@ -142,6 +142,8 @@ If PollyBackoff saves you time — especially if you're migrating from Polly.Con
 
 | [PollyAzureKeyVault](https://github.com/Swevo/PollyAzureKeyVault) | Polly v8 for Azure Key Vault |
 
+| [PollySendGrid](https://github.com/Swevo/PollySendGrid) | Polly v8 for SendGrid |
+
 ## License
 
 MIT

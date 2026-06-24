@@ -139,6 +139,8 @@ If PollyBackoff saves you time — especially if you're migrating from Polly.Con
 
 | [PollyElasticsearch](https://github.com/Swevo/PollyElasticsearch) | Polly v8 for Elastic.Clients.Elasticsearch |
 
+| [PollyAzureKeyVault](https://github.com/Swevo/PollyAzureKeyVault) | Polly v8 for Azure Key Vault |
+
 ## License
 
 MIT

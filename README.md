@@ -144,6 +144,8 @@ If PollyBackoff saves you time — especially if you're migrating from Polly.Con
 
 | [PollySendGrid](https://github.com/Swevo/PollySendGrid) | Polly v8 for SendGrid |
 
+| [PollyMassTransit](https://github.com/Swevo/PollyMassTransit) | Polly v8 for MassTransit |
+
 ## License
 
 MIT

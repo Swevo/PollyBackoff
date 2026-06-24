@@ -137,6 +137,8 @@ If PollyBackoff saves you time — especially if you're migrating from Polly.Con
 
 | [PollyRabbitMQ](https://www.nuget.org/packages/PollyRabbitMQ) | Polly v8 resilience for RabbitMQ.Client channels |
 
+| [PollyElasticsearch](https://github.com/Swevo/PollyElasticsearch) | Polly v8 for Elastic.Clients.Elasticsearch |
+
 ## License
 
 MIT

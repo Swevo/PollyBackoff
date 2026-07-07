@@ -8,13 +8,13 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
 
     <PackageId>PollyBackoff</PackageId>
-    <Version>1.0.0</Version>
+    <Version>1.0.1</Version>
     <Authors>Justin Bannister</Authors>
     <Description>Backoff delay strategies for Polly v8 resilience pipelines. Provides decorrelated jitter, exponential, linear, and constant backoff as DelayGenerator delegates for RetryStrategyOptions.</Description>
     <PackageTags>polly;retry;backoff;jitter;resilience;exponential;linear;delay;wait-and-retry;dotnet;fault-tolerance;transient-fault</PackageTags>
     <Title>PollyBackoff — Backoff strategies for Polly v8 (jitter, exponential, linear, constant)</Title>
     <PackageSummary>Drop-in replacement for Polly.Contrib.WaitAndRetry in Polly v8. Provides decorrelated jitter, exponential, linear, and constant backoff as DelayGenerator delegates for RetryStrategyOptions.</PackageSummary>
-    <PackageReleaseNotes>1.0.2: Added net6.0 and net9.0 targets; improved discoverability tags.</PackageReleaseNotes>
+    <PackageReleaseNotes>1.0.1: Fix package icon (was showing an incorrect/placeholder image). 1.0.2: Added net6.0 and net9.0 targets; improved discoverability tags.</PackageReleaseNotes>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/Swevo/PollyBackoff</RepositoryUrl>
@@ -41,8 +41,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\..\icon.png" Pack="true" PackagePath="\" />
-    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+    <None Include="....icon.png" Pack="true" PackagePath="" />
+    <None Include="....README.md" Pack="true" PackagePath="" />
   </ItemGroup>
 
 </Project>

@@ -5,6 +5,7 @@
 [![NuGet](https://img.shields.io/nuget/v/PollyBackoff.svg)](https://www.nuget.org/packages/PollyBackoff)
 [![NuGet Downloads](https://img.shields.io/nuget/dt/PollyBackoff.svg)](https://www.nuget.org/packages/PollyBackoff)
 [![CI](https://github.com/Swevo/PollyBackoff/actions/workflows/build.yml/badge.svg)](https://github.com/Swevo/PollyBackoff/actions/workflows/build.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 Backoff delay strategies for **Polly v8** resilience pipelines.
 
